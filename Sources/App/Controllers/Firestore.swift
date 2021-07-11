@@ -46,7 +46,7 @@ struct Firestore {
                                     fields: DocumentSharedLinkMapValueFields(
                                         content: DocumentField(stringValue: code),
                                         swift_version: DocumentField(stringValue: swiftVersion),
-                                        url: DocumentField(stringValue: "https://swiftfiddle.com/\(id)")
+                                        url: DocumentField(stringValue: "https://wmptav.swiftfiddle.com/\(id)")
                                     )
                                 )
                             )

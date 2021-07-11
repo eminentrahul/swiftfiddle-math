@@ -1,4 +1,5 @@
 import Vapor
+import TSCBasic
 
 struct Gist: Codable {
     let url: String

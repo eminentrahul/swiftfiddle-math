@@ -2,7 +2,7 @@ import Vapor
 
 struct ShareImage {
     static func image(client: Client, from code: String) throws -> EventLoopFuture<ByteBuffer?> {
-        return client.post("http://carbonara:3000/api/cook", headers: ["Content-Type": "application/json"]) {
+        return client.post("https://carbonara.vercel.app/api/cook", headers: ["Content-Type": "application/json"]) {
             try $0.content.encode(
                 ["code": code
                     .split(separator: "\n", omittingEmptySubsequences: false)

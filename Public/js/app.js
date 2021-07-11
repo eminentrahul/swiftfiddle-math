@@ -414,7 +414,7 @@ export class App {
         ""
       )
       .matchAll(
-        /\/\[REDACTED\]\/main\.swift:(\d+):(\d+): (error|warning|note): ([\s\S]*?)\n*(?=(?:\/|$))/gi
+        /\/[A-Za-z0-9-_/]+\/main\.swift:(\d+):(\d+): (error|warning|note): ([\s\S]*?)\n*(?=(?:\/|$))/gi
       );
     return [...matches].map((match) => {
       const row = +match[1] - 4; // 4 lines of code inserted by default

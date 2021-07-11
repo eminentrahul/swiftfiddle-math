@@ -1,15 +1,16 @@
 #!/bin/bash
 
-echo "$(swift --version)" > /[REDACTED]/version
+CWD=$(dirname $0)
+echo "$(swift --version)" > "$CWD/version"
 
-exec 1> "/[REDACTED]/stdout"
-exec 2> "/[REDACTED]/stderr"
+exec 1> "$CWD/stdout"
+exec 2> "$CWD/stderr"
 
 if [ "$_COLOR" = true ] ; then
   export TERM=xterm-256color
-  sh /[REDACTED]/faketty.sh $@ /[REDACTED]/main.swift
+  sh "$CWD/faketty.sh" $@ "$CWD/main.swift"
 else
-  $@ /[REDACTED]/main.swift
+  $@ "$CWD/main.swift"
 fi
 
-mv /[REDACTED]/stdout /[REDACTED]/completed
+mv "$CWD/stdout" "$CWD/completed"

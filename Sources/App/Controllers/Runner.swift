@@ -19,7 +19,6 @@ struct Runner {
         let timeout = parameter.timeout
         let nonce = parameter.nonce
         let envVars = parameter.environment
-        let image = parameter.image
         let code = parameter.code
 
         let sandboxPath = URL(fileURLWithPath: "\(app.directory.resourcesDirectory)Sandbox")
@@ -43,14 +42,9 @@ struct Runner {
                 .write(to: temporaryPath.appendingPathComponent("main.swift"))
 
             let process = Process(
-                args: "sh", temporaryPath.appendingPathComponent("sandobox.sh").path,
-                "\(timeout)s",
-                "--volume",
-                "\(Environment.get("HOST_PWD") ?? app.directory.workingDirectory)Resources/Temp/\(directory):/[REDACTED]",
-                image,
-                "sh",
-                "/[REDACTED]/run.sh",
-                [command, options].joined(separator: " "),
+                arguments: [
+                    "sh", temporaryPath.appendingPathComponent("run.sh").path, [command, options].joined(separator: " ")
+                ],
                 environment: envVars
             )
             try process.launch()
@@ -114,7 +108,6 @@ struct Runner {
         let options: String
         let timeout: Int
         let environment: [String: String]
-        let image: String
         let code: String
         let nonce: String
 
@@ -130,9 +123,9 @@ struct Runner {
                 (toolchainVersion ==
                     "nightly-main" ? "-Xfrontend -enable-experimental-concurrency" :
                  toolchainVersion.compare("5.3", options: .numeric) != .orderedAscending ?
-                    "-I ./swiftfiddle.com/_Packages/.build/release/ -L ./swiftfiddle.com/_Packages/.build/release/ -l_Packages" :
-                    "")
-            let timeout = parameter.timeout ?? 60 // Default timeout is 60 seconds
+                    "-I /app/_Packages/.build/release/ -L /app/_Packages/.build/release/ -l_Packages" : ""
+                )
+            let timeout = parameter.timeout ?? 3480 // Default timeout is 3480 seconds
             let color = parameter._color ?? false
             let nonce = parameter._nonce ?? ""
 
@@ -156,20 +149,12 @@ struct Runner {
                 throw Abort(.badRequest)
             }
 
-            let image: String
-            if let tag = try imageTag(for: toolchainVersion) {
-                image = tag
-            } else {
-                throw Abort(.internalServerError)
-            }
-
             self.toolchainVersion = toolchainVersion
             self.command = command
             self.options = options
             self.timeout = timeout
             self.nonce = nonce
             self.environment = environment
-            self.image = image
             self.code = code
         }
     }
