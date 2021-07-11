@@ -371,7 +371,7 @@ export class App {
           .map((line) => {
             return {
               text: `\x1b[38;5;156m\x1b[2m${line}\x1b[0m`,
-              numberOfLines: Math.ceil(line.length / terminal.cols),
+              numberOfLines: Math.ceil(line.length / this.console.cols),
             };
           })
       );
@@ -384,7 +384,7 @@ export class App {
           .map((line) => {
             return {
               text: `${line}\x1b[0m`,
-              numberOfLines: Math.ceil(line.length / terminal.cols),
+              numberOfLines: Math.ceil(line.length / this.console.cols),
             };
           })
       );
@@ -397,7 +397,7 @@ export class App {
           .map((line) => {
             return {
               text: `\x1b[37m${line}\x1b[0m`,
-              numberOfLines: Math.ceil(line.length / terminal.cols),
+              numberOfLines: Math.ceil(line.length / this.console.cols),
             };
           })
       );
