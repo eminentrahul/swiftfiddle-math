@@ -3,46 +3,33 @@
   "cxxLanguageStandard" : null,
   "dependencies" : [
     {
-      "name" : "swift-algorithms",
+      "name" : "swm-core",
       "productFilter" : null,
       "requirement" : {
         "range" : [
           {
-            "lowerBound" : "0.2.1",
-            "upperBound" : "1.0.0"
+            "lowerBound" : "1.2.7",
+            "upperBound" : "2.0.0"
           }
         ]
       },
-      "url" : "https://github.com/apple/swift-algorithms"
+      "url" : "https://github.com/taketo1024/swm-core.git"
     },
     {
-      "name" : "swift-atomics",
+      "name" : "swm-homology",
       "productFilter" : null,
       "requirement" : {
         "range" : [
           {
-            "lowerBound" : "0.0.3",
-            "upperBound" : "1.0.0"
+            "lowerBound" : "1.3.2",
+            "upperBound" : "2.0.0"
           }
         ]
       },
-      "url" : "https://github.com/apple/swift-atomics"
+      "url" : "https://github.com/taketo1024/swm-homology.git"
     },
     {
-      "name" : "swift-collections",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "0.0.3",
-            "upperBound" : "1.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/apple/swift-collections"
-    },
-    {
-      "name" : "swift-crypto",
+      "name" : "swm-khovanov",
       "productFilter" : null,
       "requirement" : {
         "range" : [
@@ -52,72 +39,7 @@
           }
         ]
       },
-      "url" : "https://github.com/apple/swift-crypto"
-    },
-    {
-      "name" : "swift-numerics",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "0.1.0",
-            "upperBound" : "1.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/apple/swift-numerics"
-    },
-    {
-      "name" : "swift-system",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "0.0.2",
-            "upperBound" : "1.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/apple/swift-system"
-    },
-    {
-      "name" : "swm-core",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "1.2.6",
-            "upperBound" : "2.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/taketo1024/swm-core"
-    },
-    {
-      "name" : "swm-homology",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "1.3.0",
-            "upperBound" : "2.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/taketo1024/swm-homology"
-    },
-    {
-      "name" : "swm-khovanov",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "1.1.5",
-            "upperBound" : "2.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/taketo1024/swm-khovanov"
+      "url" : "https://github.com/taketo1024/swm-khovanov.git"
     },
     {
       "name" : "swm-knots",
@@ -125,12 +47,12 @@
       "requirement" : {
         "range" : [
           {
-            "lowerBound" : "1.1.0",
+            "lowerBound" : "1.2.0",
             "upperBound" : "2.0.0"
           }
         ]
       },
-      "url" : "https://github.com/taketo1024/swm-knots"
+      "url" : "https://github.com/taketo1024/swm-knots.git"
     },
     {
       "name" : "swm-kr",
@@ -138,32 +60,25 @@
       "requirement" : {
         "range" : [
           {
-            "lowerBound" : "0.3.3",
+            "lowerBound" : "0.4.3",
             "upperBound" : "1.0.0"
           }
         ]
       },
-      "url" : "https://github.com/taketo1024/swm-kr"
-    },
-    {
-      "name" : "swm-matrix-tools",
-      "productFilter" : null,
-      "requirement" : {
-        "range" : [
-          {
-            "lowerBound" : "1.3.0",
-            "upperBound" : "2.0.0"
-          }
-        ]
-      },
-      "url" : "https://github.com/taketo1024/swm-matrix-tools"
+      "url" : "https://github.com/taketo1024/swm-kr.git"
     }
   ],
   "name" : "_Packages",
   "packageKind" : "root",
   "pkgConfig" : null,
   "platforms" : [
+    {
+      "options" : [
 
+      ],
+      "platformName" : "macos",
+      "version" : "10.15"
+    }
   ],
   "products" : [
     {
@@ -183,48 +98,6 @@
   "targets" : [
     {
       "dependencies" : [
-        {
-          "product" : [
-            "Algorithms",
-            "swift-algorithms",
-            null
-          ]
-        },
-        {
-          "product" : [
-            "Atomics",
-            "swift-atomics",
-            null
-          ]
-        },
-        {
-          "product" : [
-            "Collections",
-            "swift-collections",
-            null
-          ]
-        },
-        {
-          "product" : [
-            "Crypto",
-            "swift-crypto",
-            null
-          ]
-        },
-        {
-          "product" : [
-            "Numerics",
-            "swift-numerics",
-            null
-          ]
-        },
-        {
-          "product" : [
-            "SystemPackage",
-            "swift-system",
-            null
-          ]
-        },
         {
           "product" : [
             "SwmCore",
@@ -257,13 +130,6 @@
           "product" : [
             "SwmKR",
             "swm-kr",
-            null
-          ]
-        },
-        {
-          "product" : [
-            "SwmMatrixTools",
-            "swm-matrix-tools",
             null
           ]
         }
