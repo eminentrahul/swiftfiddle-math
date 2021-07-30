@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "_Packages", type: .dynamic, targets: ["_Packages"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/taketo1024/swm-core.git", from:"1.2.7"),
+        .package(url: "https://github.com/taketo1024/swm-core.git", from:"1.2.8"),
         .package(url: "https://github.com/taketo1024/swm-homology.git", from: "1.3.2"),
         .package(url: "https://github.com/taketo1024/swm-khovanov.git", from: "1.1.6"),
         .package(url: "https://github.com/taketo1024/swm-knots.git", from: "1.2.0"),
