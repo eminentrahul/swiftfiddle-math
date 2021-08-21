@@ -17,7 +17,7 @@ export class App {
     this.isEmbedded = config.isEmbedded;
     const foldingRanges = config.foldingRanges;
 
-    this.editor = new Editor(initialText, this.isEmbedded);
+    this.editor = new Editor(unescapeHTML(initialText), this.isEmbedded);
     this.console = new Console(document.getElementById("terminal"));
     this.history = [];
 
@@ -474,4 +474,9 @@ function updateButtonState(editor) {
     $("#run-button").prop("disabled", false);
     $("#share-button").prop("disabled", false);
   }
+}
+
+function unescapeHTML(text) {
+  const parser = new DOMParser().parseFromString(text, "text/html");
+  return parser.documentElement.textContent;
 }
